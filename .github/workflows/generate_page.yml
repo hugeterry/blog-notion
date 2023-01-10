@@ -6,6 +6,7 @@
     on:
       push:
         branches:
+          - master
           - blog-notion
       schedule:
         - cron: '0 19 * * *'    
