@@ -1,4 +1,4 @@
-    name: Github Pages
+    name: 🚀Page Build&Deploy
     
     # Controls when the workflow will run
     on:
@@ -7,7 +7,7 @@
           - master
           - blog-notion
       schedule:
-        - cron: '0 16 * * *'    
+        - cron: '0 17 * * *'    
       # Allows you to run this workflow manually from the Actions tab
       workflow_dispatch:
     
@@ -27,14 +27,14 @@
           - name: Build
             run: npm i -g notablog && notablog generate .
           # 2、部署到 GitHub Pages
-          - name: Deploy
+          - name: Github Page Deploy 
             uses: JamesIves/github-pages-deploy-action@v4.2.5
             with:
               token: ${{ secrets.ACCESS_TOKEN }}
               repository-name: hugeterry/n.hugeterry.cn 
               BRANCH: blog-notion               
               FOLDER: public
-          - name: Deploy
+          - name: Qiniu Deploy 
             uses: saltbo/uptoc@master
             with:
               driver: qiniu
