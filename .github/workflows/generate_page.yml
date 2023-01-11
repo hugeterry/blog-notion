@@ -34,18 +34,29 @@
               repository-name: hugeterry/n.hugeterry.cn 
               BRANCH: blog-notion               
               FOLDER: public
-          - uses: hujiulong/action-qiniu-upload@master
+          - name: Deploy
+            uses: saltbo/uptoc@master
             with:
-                access_key: ${{ secrets.QINIU_ACCESS_KEY }}
-                secret_key: ${{ secrets.QINIU_SECRET_KEY }}
-                bucket: ${{ secrets.QINIU_BUCKET }}
-                # The local directory (or file) you want to upload to bucket.
-                # Default: './'
-                source_dir: 'public'
-                # The directory inside of the bucket you want to upload to, namely key prefix prepended to dest file key.
-                # Default: '/'
-#                 dest_dir: '/static'
-                # Whether to ignore source maps.
-                # Default: true
-#                 ignore_source_map: true
+              driver: qiniu
+              region: cn-south-1
+              bucket: ${{ secrets.QINIU_BUCKET }}
+              exclude: .cache,test
+              dist: public
+            env:
+              UPTOC_UPLOADER_AK: ${{ secrets.QINIU_ACCESS_KEY }}
+              UPTOC_UPLOADER_SK: ${{ secrets.QINIU_SECRET_KEY }}
+#           - uses: hujiulong/action-qiniu-upload@master
+#             with:
+#                 access_key: ${{ secrets.QINIU_ACCESS_KEY }}
+#                 secret_key: ${{ secrets.QINIU_SECRET_KEY }}
+#                 bucket: ${{ secrets.QINIU_BUCKET }}
+#                 # The local directory (or file) you want to upload to bucket.
+#                 # Default: './'
+#                 source_dir: 'public'
+#                 # The directory inside of the bucket you want to upload to, namely key prefix prepended to dest file key.
+#                 # Default: '/'
+# #                 dest_dir: '/static'
+#                 # Whether to ignore source maps.
+#                 # Default: true
+# #                 ignore_source_map: true
         
