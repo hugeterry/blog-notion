@@ -1,6 +1,6 @@
 name: Node.js Reference Test
  
-# on:
+on:
 #   push:
 
 jobs:
