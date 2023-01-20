@@ -5,7 +5,6 @@
       push:
         branches:
           - master
-          - blog-notion
       schedule:
         - cron: '0 17 * * *'    
       # Allows you to run this workflow manually from the Actions tab
@@ -32,7 +31,7 @@
             with:
               token: ${{ secrets.ACCESS_TOKEN }}
               repository-name: hugeterry/n.hugeterry.cn 
-              BRANCH: blog-notion               
+              BRANCH: main   
               FOLDER: public
           - name: Qiniu Deploy 
             uses: saltbo/uptoc@master
