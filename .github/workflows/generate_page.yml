@@ -5,6 +5,7 @@
       push:
         branches:
           - master
+          
       schedule:
         - cron: '0 17 * * *'    
       # Allows you to run this workflow manually from the Actions tab
