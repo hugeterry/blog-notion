@@ -1,7 +1,9 @@
 name: Node.js Reference Test
  
 on:
-#   push:
+  push:
+    branches:
+    - master
 
 jobs:
   build:
